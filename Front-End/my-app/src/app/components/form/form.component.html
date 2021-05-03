@@ -1,0 +1,115 @@
+<body>
+    <div class="main-block">
+        <div class="left-part">
+            <h1>Register</h1>
+            <p>Register to visit dashboard and other pages.</p>
+        </div>
+        <form [formGroup]="form">
+            <div class="title">
+                <h2>Register here</h2>
+            </div>
+            <div class="inner-form">
+                <div class="inner-form" formGroupName="info">
+                    <input type="text" formControlName="name" placeholder="Full name">
+                    <small class="error-text" *ngIf="form.get('info.name').invalid && form.get('info.name').touched">
+                        <span *ngIf="form.get('info.name').errors['required']">
+                            Enter name
+                        </span>
+                        <span *ngIf="form.get('info.name').errors['pattern']">
+                            Length: 3 to 20 characters<br>
+                            Number or special characters not allowed
+                        </span>
+                    </small>
+
+                    <input type="text" formControlName="userName" placeholder="Username">
+                    <small class="error-text" *ngIf="form.get('info.userName').invalid && form.get('info.userName').touched">
+                        <span *ngIf="form.get('info.userName').errors['required'] && form.get('info.userName').touched">
+                            Enter username
+                        </span>
+                        <span *ngIf="form.get('info.userName').errors['notAvailable']">
+                            {{form.get('info.userName').value}} already taken
+                        </span>
+                    </small>
+
+                    <input type="email" formControlName="email" placeholder="Email">
+                    <small class="error-text" *ngIf="form.get('info.email').invalid && form.get('info.email').touched">
+                        <span *ngIf="form.get('info.email').errors['required'] && form.get('info.email').touched">
+                            Enter email
+                        </span>
+                        <span *ngIf="form.get('info.email').errors['notAvailable']">
+                            {{form.get('info.email').value}} already registered
+                        </span>
+                        <span *ngIf="form.get('info.email').errors['pattern']">
+                            Invalid email
+                        </span>
+                    </small>
+
+                    <input type="tel" formControlName="phone" placeholder="Phone">
+                    <small class="error-text" *ngIf="form.get('info.phone').invalid && form.get('info.phone').touched">
+                        <span *ngIf="form.get('info.phone').errors['required']">
+                            Phone number required
+                        </span>
+                        <span *ngIf="form.get('info.phone').errors['pattern']">
+                            Invalid phone number
+                        </span>
+                    </small>
+                </div>
+                <input type="password" formControlName="password" placeholder="Password">
+                <small class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+                    <span *ngIf="form.get('password').errors['required']">
+                        Password required
+                    </span>
+                    <span *ngIf="form.get('password').errors['pattern']">
+                        Weak password<br>
+                        Length > 8<br>
+                        Must contain:<br>
+                        *number<br>
+                        *special character<br>
+                        *uppercase letter<br>
+                        *lowercase letter<br>
+                    </span>
+                </small>
+
+                <select formControlName="course">
+                <option value="Short-courses">Short courses</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Certificate">Certificate</option>
+                <option value="Masters-degree">Masters degree</option>
+                <option value="Postgraduate">Postgraduate</option>
+            </select>
+                <div formArrayName="skills">
+                    <ng-container *ngFor="let skill of form.get('skills')['controls']; index as i">
+                        <input type="text" size="16" placeholder="Skill" formControlName="{{i}}">
+                        <b class="btn-rem-skill" (click)="onDeleteSkill(i)" *ngIf="i > 0">x</b>
+                        <br>
+                    </ng-container>
+                    <br>
+                    <button class="btn-hover btn-skill" (click)="onAddSkill()"><i>+</i>Add Skill</button>
+                </div>
+            </div>
+
+            <div>
+                <label>
+                <input type="radio" value="male" formControlName="gender"> Male
+            </label>
+                <label>
+                <input type="radio" value="female" formControlName="gender"> Female
+            </label>
+                <br>
+                <small class="error-text" *ngIf="form.get('gender').invalid && form.get('gender').touched">Select gender</small>
+            </div>
+
+            <div>
+                <div class="checkbox">
+                    <input type="checkbox" formControlName="checkbox">
+                </div>
+                <span style="margin-top: 8px; margin-left: 15px; margin-bottom: 10px;">I agree to the <a href="#">Privacy Poalicy.</a>
+                </span><br>
+                <small class="error-text" *ngIf="form.get('checkbox').errors">*read the poalicy and check</small>
+            </div>
+
+            <button class="btn-hover btn-submit" type="submit" (click)="onSubmit()">Submit</button>
+        </form>
+    </div>
+</body>

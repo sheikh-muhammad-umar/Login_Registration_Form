@@ -1,0 +1,39 @@
+<body>
+    <div class="main-block">
+        <div class="left-part">
+            <h1>Login</h1>
+            <p>Login to visit dashboard and other pages.</p>
+        </div>
+        <form [formGroup]="form">
+            <div class="title">
+                <h2>Login here</h2>
+            </div>
+            <div class="inner-form">
+                <input type="email" formControlName="email" placeholder="Email">
+                <small class="error-text" *ngIf="form.get('email').invalid && form.get('email').touched">
+                        <span *ngIf="form.get('email').errors['required'] && form.get('email').touched">
+                            *Enter email
+                        </span>
+                        <span *ngIf="form.get('email').errors['pattern']">
+                            *Invalid email
+                        </span>
+                    </small>
+
+                <input type="password" formControlName="password" placeholder="Password">
+                <small class="error-text" *ngIf="form.get('password').invalid && form.get('password').touched">
+                    <span *ngIf="form.get('password').errors['required'] && form.get('password').touched">
+                        *Enter password
+                    </span>
+                </small>
+
+                <div class="checkbox">
+                    <input type="checkbox" formControlName="checkbox">
+                </div>
+                <small style="margin-top: 8px; margin-left: 15px; margin-bottom: 10px; color: gray;">Remember me</small>
+
+                <button class="btn-hover btn-submit" type="submit" (click)="onSubmit()">Login</button>
+                <button class="btn-hover btn-submit" [routerLink]="['/register']">Signup</button>
+            </div>
+        </form>
+    </div>
+</body>

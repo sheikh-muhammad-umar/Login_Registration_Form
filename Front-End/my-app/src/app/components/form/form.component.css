@@ -1,0 +1,186 @@
+.t1 {
+    display: block;
+    width: 150px;
+    float: left;
+    margin-bottom: 10px;
+}
+
+html {
+    min-height: 100%;
+}
+
+div,
+form,
+input,
+select,
+p {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    color: #eee;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    font-weight: 400;
+    color: rgb(255, 217, 0);
+}
+
+h2 {
+    margin: 0 0 0 8px;
+}
+
+.main-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 25px;
+    background: rgba(209, 224, 138, 0.5);
+}
+
+body {
+    background: url("../../../assets/images/form-background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.left-part,
+form {
+    padding: 25px;
+    background-color: rgba(179, 183, 184, 0.5);
+    border-radius: 25px;
+}
+
+.left-part {
+    text-align: center;
+}
+
+form {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.inner-form {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+select {
+    padding-top: 5px;
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #eee;
+}
+
+.btn-submit {
+    padding: 10px 5px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background: #26a9e0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-skill {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.4);
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.btn-skill i {
+    font-size: 15px;
+    display: inline-block;
+    position: relative;
+    /* top: 6; */
+    margin-right: 3px;
+}
+
+.btn-hover:hover {
+    border: #26a9e0;
+    background: #fff;
+    color: #26a9e0;
+}
+
+.btn-rem-skill {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.btn-rem-skill:hover {
+    color: red;
+    cursor: pointer;
+}
+
+input::placeholder {
+    color: #eee;
+}
+
+option:focus {
+    border: none;
+}
+
+option {
+    background: rgb(74, 179, 228);
+    border: none;
+}
+
+.checkbox input {
+    margin: 3px 10px 0 0;
+    vertical-align: middle;
+}
+
+.checkbox a {
+    color: #26a9e0;
+}
+
+.checkbox a:hover {
+    color: #85d6de;
+}
+
+input.ng-touched.ng-invalid {
+    border: 1px solid red;
+    box-shadow: rgb(255, 0, 0, 0.2);
+}
+
+.error-text {
+    color: red;
+}
+
+
+/* 
+@media (min-width: 568px) {
+    html {
+        height: 100%;
+    }
+    .main-block {
+        flex-direction: row;
+        height: calc(100% - 50px);
+    }
+    .left-part,
+    form {
+        flex: 1;
+        height: auto;
+    }
+} */

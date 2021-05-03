@@ -1,0 +1,10 @@
+<div *ngIf="user">
+    <h1>Profile</h1>
+    <h3>User Name: {{user.name}}</h3>
+    <h3>Gender: {{user.gender}}</h3>
+    <h3>Registered Course: {{user.course}}</h3>
+    <h3>Skills:</h3>
+    <ul *ngFor="let skill of user.skills">
+        <h2>* {{skill}}</h2>
+    </ul>
+</div>
